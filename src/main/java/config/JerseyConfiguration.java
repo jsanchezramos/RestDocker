@@ -8,7 +8,7 @@ import javax.ws.rs.ApplicationPath;
 @ApplicationPath("/*")
 public class JerseyConfiguration extends ResourceConfig {
     public JerseyConfiguration() {
-        packages("rest");
+        packages("resources");
         register(JacksonFeature.class);
     }
 }
