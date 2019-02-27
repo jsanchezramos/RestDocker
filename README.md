@@ -1,5 +1,6 @@
 # Rest service to Docker
-## Instrucions
+## Instructions
+
 Build docker
 ```
 docker build -t dockerrest
