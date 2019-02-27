@@ -2,13 +2,13 @@ package services;
 
 import model.Item;
 import org.junit.jupiter.api.Test;
-import repository.CardMemoryImpl;
+import repository.CardMemoryTest;
 import repository.CardRepository;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class CardServiceAddTest {
-    private CardRepository cardRepository = CardMemoryImpl.getInstance();
+    private CardRepository cardRepository = new CardMemoryTest();
     private CardServiceAdd cardServiceAdd = new CardServiceAdd(cardRepository);
 
     @Test
