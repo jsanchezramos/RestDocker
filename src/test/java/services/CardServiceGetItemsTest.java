@@ -19,13 +19,13 @@ class CardServiceGetItemsTest {
         List<Item> lItems = cardServiceGetItems.getItems();
         assertEquals(lItems.size(),0);
     }
-    @Test void whenGetListAllItemsBeforeAddItem(){
+    @Test
+    void whenGetListAllItemsBeforeAddItem(){
         CardServiceAdd cardServiceAdd = new CardServiceAdd(cardRepository);
 
         Item item = new Item("nameItem", "price item");
         cardServiceAdd.addItem(item);
         List<Item> lItem = cardServiceGetItems.getItems();
         assertEquals(lItem.size(),1);
-
     }
 }

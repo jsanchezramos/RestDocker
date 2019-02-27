@@ -10,16 +10,14 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import resources.connection.JettyServerTest;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class CardResourceGetTest {
+class CardResourcePostTest {
     private JettyServerTest jettyServerTest = new JettyServerTest();
 
     @BeforeEach
@@ -29,25 +27,33 @@ class CardResourceGetTest {
     }
     @AfterEach
     public void closeConnection() throws Exception {
-        jettyServerTest.stopServer();
+       jettyServerTest.stopServer();
     }
 
     @Test
-    public void whenGetAllItemsInTheCard() throws IOException {
+    public void whenAddItemIsNotCorrectAddItem() throws IOException {
         HttpURLConnection http = (HttpURLConnection)new URL("http://0.0.0.0:8080/card").openConnection();
-        http.setRequestMethod("GET");
+        http.setRequestMethod("POST");
         http.connect();
-        BufferedReader br = new BufferedReader(new InputStreamReader(http.getInputStream()));
-        StringBuilder sb = new StringBuilder();
-        String line;
 
-        while ((line = br.readLine()) != null) {
-            sb.append(line+"\n");
-        }
-        br.close();
+        assertTrue(http.getResponseCode() == 400);
+    }
+    @Test
+    public void whenAddCorrectItems() throws IOException {
+        String json = "{\"priceItem\":\"10€\" , \"nameItem\":\"coke\"}";
 
-        assertTrue(http.getResponseCode() == 200);
-        assertTrue(sb.toString().contains("No items in card"));
+        HttpURLConnection http = (HttpURLConnection)new URL("http://0.0.0.0:8080/card").openConnection();
+        http.setRequestMethod("POST");
+        http.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
+        http.setDoOutput(true);
+
+        OutputStream os = http.getOutputStream();
+
+        os.write(json.getBytes("UTF-8"));
+        os.close();
+        http.connect();
+
+        assertTrue(http.getResponseCode() == 201);
     }
 
 }

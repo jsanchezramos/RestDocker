@@ -4,6 +4,7 @@ import model.Item;
 import repository.CardRepository;
 
 import javax.validation.constraints.NotNull;
+import java.util.concurrent.ExecutionException;
 
 public final class CardServiceAdd {
     private CardRepository cardRepository;
@@ -21,6 +22,11 @@ public final class CardServiceAdd {
         return isOk;
     }
     private Boolean checkItem(Item item){
-        return item.getPriceItem().length() > 1 && item.getPriceItem().contains("€") && item.getNameItem().length() > 4;
+        try{
+            return item.getPriceItem().length() > 1 && item.getPriceItem().contains("€") && item.getNameItem().length() > 4;
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+            return false;
+        }
     }
 }
