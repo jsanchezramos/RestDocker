@@ -40,7 +40,7 @@ class CardResourcePostTest {
     }
     @Test
     public void whenAddCorrectItems() throws IOException {
-        String json = "{\"priceItem\":\"10€\" , \"nameItem\":\"coke\"}";
+        String json = "{\"priceItem\":\"10€\" , \"nameItem\":\"cokes\"}";
 
         HttpURLConnection http = (HttpURLConnection)new URL("http://0.0.0.0:8080/card").openConnection();
         http.setRequestMethod("POST");

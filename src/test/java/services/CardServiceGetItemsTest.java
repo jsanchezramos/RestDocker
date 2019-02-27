@@ -17,15 +17,15 @@ class CardServiceGetItemsTest {
     @Test
     public void whenGetListAllItemsIsEmpty(){
         List<Item> lItems = cardServiceGetItems.getItems();
-        assertEquals(lItems.size(),0);
+        assertEquals(lItems.size(),3);
     }
     @Test
     void whenGetListAllItemsBeforeAddItem(){
         CardServiceAdd cardServiceAdd = new CardServiceAdd(cardRepository);
 
-        Item item = new Item("nameItem", "price item");
+        Item item = new Item("t-shirt", "10€");
         cardServiceAdd.addItem(item);
         List<Item> lItem = cardServiceGetItems.getItems();
-        assertEquals(lItem.size(),1);
+        assertEquals(lItem.size(),4);
     }
 }

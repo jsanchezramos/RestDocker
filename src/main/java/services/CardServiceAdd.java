@@ -23,7 +23,7 @@ public final class CardServiceAdd {
     }
     private Boolean checkItem(Item item){
         try{
-            return item.getPriceItem().length() > 1 && item.getPriceItem().contains("€") && item.getNameItem().length() > 4;
+            return item.getPriceItem().length() > 1 && item.getPriceItem().contains("€") && item.getNameItem().length() >= 4;
         }catch(Exception ex){
             System.out.println(ex.getMessage());
             return false;
