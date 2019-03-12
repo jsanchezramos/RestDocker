@@ -87,3 +87,8 @@ hs_err_pid*
 
 /target/
 .idea/
+.settings/
+.vscode/
+.project
+.classpath
+bin/
