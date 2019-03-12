@@ -4,7 +4,6 @@ import model.Item;
 import repository.CardMemoryImpl;
 import repository.CardRepository;
 import services.CardServiceAdd;
-import services.CardServiceGetItems;
 
 import javax.inject.Singleton;
 import javax.ws.rs.Consumes;

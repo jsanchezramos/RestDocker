@@ -4,7 +4,6 @@ import model.Item;
 import repository.CardRepository;
 
 import javax.validation.constraints.NotNull;
-import java.util.concurrent.ExecutionException;
 
 public final class CardServiceAdd {
     private CardRepository cardRepository;
