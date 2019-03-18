@@ -1,4 +1,7 @@
 # Rest service to Docker
+
+[![Coverage Status](https://coveralls.io/repos/github/jsanchezramos/RestDocker/badge.svg)](https://coveralls.io/github/jsanchezramos/RestDocker)
+
 ## Instructions
 
 Build docker
