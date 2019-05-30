@@ -27,4 +27,4 @@ Postman collection : https://www.getpostman.com/collections/8d1ccf323286bc2e7bb7
 mvn test
 ```
 
-OK
+OK.
